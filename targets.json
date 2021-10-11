@@ -1,0 +1,6 @@
+[
+  {
+    "Id": "1", 
+    "Arn": "arn:aws:lambda:us-east-1:107881833536:function:myFunction"
+  }
+]
