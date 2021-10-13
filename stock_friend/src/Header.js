@@ -4,7 +4,8 @@ import './css.css';
 function Header() {
     return (
         <div>
-        <h1>StockFriend</h1>
+
+        <h1>Stock Friend</h1>
         </div>
     )
 }
