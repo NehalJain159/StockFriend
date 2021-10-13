@@ -21,22 +21,32 @@ function Form() {
         console.log(res);
     }
 
+    let clearData = (e) => {
+        window.sessionStorage.removeItem('username');
+        window.sessionStorage.removeItem('name');
+        window.sessionStorage.removeItem('phoneNumber');
+        window.sessionStorage.removeItem('company');
+        window.sessionStorage.removeItem('sharePurchasedAtPrice');
+        window.sessionStorage.removeItem('noOfSharesPurchased');
+        window.sessionStorage.removeItem('desiredSharePrice');
+    }
+
     return (
         <div>
             <div className="wrapper">
                 <form action="#" id="user-info" onSubmit={submitDetails}>
                     <div className="pair">
                         <label for='username '>Username </label><br/>
-                        <input type='text' name='username' className='username'/><br/>
+                        <input type='text' name='username' className='username'required /><br/>
                     </div>
                     <div className="pair">
                         <label for='name '>Name </label><br/>
-                        <input type='text' name='name' className='name'/><br/>
+                        <input type='text' name='name' className='name' required /><br/>
                     </div>
                     <div className="pair">
                         <label for='phone '>Phone Number </label><br/>
-                        <input type='text' name='country code' className='phone cnty' id='country-code' placeholder="+91 "></input>
-                        <input type='text' name='phone' className='phone' id='phone'></input><br/>
+                        <input type='text' name='country code' className='phone cnty' id='country-code' placeholder="+91" required></input>
+                        <input type='text' name='phone' className='phone' id='phone' required></input><br/>
                     </div>
                     <div className="pair">
                         <label for='company'>Company</label><br/>
@@ -50,26 +60,24 @@ function Form() {
                         <label for='apple' className='company'>Google</label>
                     </div>
                     <div className="pair">
-                        <label for='stkprice '>Share Price </label><br/>
-                        <div className="con">*</div>
-                        <div className="cont">Price per share. </div><br/>
-                        <input type='text' name='stkprice' className='stkprice'></input><br/>
+                        <label for='stkprice '>Total price of shares purchased</label><br/>
+                        <input type='text' name='stkprice' className='stkprice' required ></input><br/>
                     </div>
                     <div className="pair">
                         <label for='noofshares'>No of shares purchased </label><br/>
-                        <input type='text' name='noofshares' className='noofshares'></input><br/>
+                        <input type='text' name='noofshares' className='noofshares' required></input><br/>
                     </div>
                     <div className="pair">
                         <label for='diff '>Difference</label><br/>
                         <div className="cont">Enter an absolute value or in percentages relative to stock price. ex. +10%, -10%, 10$ etc</div><br/>
-                        <input type='text' name='diff' className='diff'></input><br/>
+                        <input type='text' name='diff' className='diff' required></input><br/>
                     </div>
                     <div className="wrap-btn">
                         <div className="button">
                             <input type='submit' value='Submit' className='btn'></input><br/>
                             </div>
                             <div className="button">
-                                <input type="reset" className='btn'/>
+                                <input type="reset" className='btn' onClick={clearData}/>
                             </div>
                     </div>
                 </form>

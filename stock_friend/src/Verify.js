@@ -6,7 +6,7 @@ function Verify() {
     let verifyOtp = async (e) => {
         e.preventDefault();
         window.sessionStorage.setItem(
-            'otp',
+            'oneTimePassword',
             document.getElementById("I").value+
             document.getElementById("II").value+
             document.getElementById("III").value+
@@ -18,12 +18,14 @@ function Verify() {
             window.sessionStorage.getItem('username'),
             window.sessionStorage.getItem('name'),
             window.sessionStorage.getItem('phoneNumber'),
+            window.sessionStorage.getItem('oneTimePassword'),
             window.sessionStorage.getItem('company'),
             window.sessionStorage.getItem('sharePurchasedAtPrice'),
             window.sessionStorage.getItem('noOfSharesPurchased'),
             window.sessionStorage.getItem('desiredSharePrice'),            
         );
         console.log(res);
+        // window.sessionStorage.removeItem('oneTimePassword');
     }
 
     return (
