@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL:'https://tt4i2b4huh.execute-api.us-east-1.amazonaws.com/default'
 });
 
-let confirmOtp = async (username, name, phoneNumber, oneTimePassword, company, sharePurchasedAtPrice, noOfSharesPurchased, desiredSharePrice) => {
+let confirmOtp = async (username, name, phoneNumber, oneTimePassword, company, sharePurchasedAtPrice, desiredSharePrice) => {
     let res = await api.post('/confirmOtp', {
         headers:{
             'Content-Type': 'application/json'
@@ -15,7 +15,6 @@ let confirmOtp = async (username, name, phoneNumber, oneTimePassword, company, s
         oneTimePassword,
         company,
         sharePurchasedAtPrice,
-        noOfSharesPurchased,
         desiredSharePrice
     })
     return res;

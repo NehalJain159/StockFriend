@@ -21,7 +21,6 @@ function Verify() {
             window.sessionStorage.getItem('oneTimePassword'),
             window.sessionStorage.getItem('company'),
             window.sessionStorage.getItem('sharePurchasedAtPrice'),
-            window.sessionStorage.getItem('noOfSharesPurchased'),
             window.sessionStorage.getItem('desiredSharePrice'),            
         );
         console.log(res);

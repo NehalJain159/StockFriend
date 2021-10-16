@@ -12,7 +12,6 @@ function Form() {
         window.sessionStorage.setItem('phoneNumber',document.getElementById('country-code').value+document.getElementById('phone').value);
         window.sessionStorage.setItem('company',document.querySelector('.company').value);
         window.sessionStorage.setItem('sharePurchasedAtPrice',document.querySelector('.stkprice').value);
-        window.sessionStorage.setItem('noOfSharesPurchased',document.querySelector('.noofshares').value);
         window.sessionStorage.setItem('desiredSharePrice',document.querySelector('.diff').value);
         let res = await createOtp(
             window.sessionStorage.getItem('username'),
@@ -27,7 +26,6 @@ function Form() {
         window.sessionStorage.removeItem('phoneNumber');
         window.sessionStorage.removeItem('company');
         window.sessionStorage.removeItem('sharePurchasedAtPrice');
-        window.sessionStorage.removeItem('noOfSharesPurchased');
         window.sessionStorage.removeItem('desiredSharePrice');
     }
 
@@ -60,16 +58,12 @@ function Form() {
                         <label for='apple' className='company'>Google</label>
                     </div>
                     <div className="pair">
-                        <label for='stkprice '>Total price of shares purchased</label><br/>
+                        <label for='stkprice '>Price per share</label><br/>
                         <input type='text' name='stkprice' className='stkprice' required ></input><br/>
                     </div>
                     <div className="pair">
-                        <label for='noofshares'>No of shares purchased </label><br/>
-                        <input type='text' name='noofshares' className='noofshares' required></input><br/>
-                    </div>
-                    <div className="pair">
-                        <label for='diff '>Difference</label><br/>
-                        <div className="cont">Enter an absolute value or in percentages relative to stock price. ex. +10%, -10%, 10$ etc</div><br/>
+                        <label for='diff '>Desired Stock price per share</label><br/>
+                        <div className="cont">Enter an absolute value</div><br/>
                         <input type='text' name='diff' className='diff' required></input><br/>
                     </div>
                     <div className="wrap-btn">
