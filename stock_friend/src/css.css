@@ -13,7 +13,7 @@ h1 {
 .wrapper{
     border: 2px dotted orange;
     width: 80%;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     padding: 2em;
     display: flex;
@@ -25,7 +25,7 @@ h1 {
 
 .pair, .button{
     border: 1px solid rgb(2, 168, 245);
-    width: 80%;
+    width: 100%;
     max-width: 500px;
     margin-top: 2em;
     padding: 1em;
@@ -34,9 +34,10 @@ h1 {
 }
 
 .button{
-    width: 40%;
+    width: 30%;
     border-color: rgb(33, 204, 33);
     border-radius: 8px;
+    text-align: center;
 }
 
 .btn{
@@ -45,10 +46,19 @@ h1 {
     border: none;
     background-color: white;
     font-size: 1em;
+    text-decoration: none;
+    color:black;
+    vertical-align: middle;
+    cursor: default;
+}
+
+.btn:focus {
+    border:none;
+    outline:none;
 }
 
 .wrap-btn{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
@@ -71,6 +81,14 @@ input{
     margin-top: 4px;
     width: 70%;
 }
+
+.link {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    width: 70%;
+}
+
 .cnty{
     width:3em;
 }
@@ -118,4 +136,24 @@ form.pair{
     border: 1px solid green;
     border-radius: 5px;
     background-color: white;
+    text-decoration: none;
+    color:black;
+    vertical-align: middle;
+    cursor: default;
+    text-align: center;
+}
+
+.form-btn:focus {
+    outline:none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

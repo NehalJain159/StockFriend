@@ -1,6 +1,7 @@
 import React from 'react';
 import './css.css';
 import createOtp from './Services/createOtp';
+import {Link} from 'react-router-dom';
 
 
 function Form() {
@@ -58,7 +59,7 @@ function Form() {
                         <label for='apple' className='company'>Google</label>
                     </div>
                     <div className="pair">
-                        <label for='stkprice '>Price per share</label><br/>
+                        <label for='stkprice '>Share purchased at price</label><br/>
                         <input type='text' name='stkprice' className='stkprice' required ></input><br/>
                     </div>
                     <div className="pair">
@@ -68,11 +69,14 @@ function Form() {
                     </div>
                     <div className="wrap-btn">
                         <div className="button">
+                            <Link to="/verify" className='btn link'>Next</Link>
+                        </div>
+                        <div className="button">
                             <input type='submit' value='Submit' className='btn'></input><br/>
-                            </div>
-                            <div className="button">
-                                <input type="reset" className='btn' onClick={clearData}/>
-                            </div>
+                        </div>
+                        <div className="button">
+                            <input type="reset" className='btn' onClick={clearData}/>
+                        </div>
                     </div>
                 </form>
             </div>
