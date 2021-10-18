@@ -14,8 +14,8 @@ let confirmOtp = async (username, name, phoneNumber, oneTimePassword, company, s
         phoneNumber,
         oneTimePassword,
         company,
-        sharePurchasedAtPrice,
-        desiredSharePrice
+        sharePurchasedAtPrice: Number(sharePurchasedAtPrice),
+        desiredSharePrice: Number(desiredSharePrice)
     })
     return res;
 }
