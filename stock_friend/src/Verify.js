@@ -34,7 +34,6 @@ function Verify() {
             document.getElementById("VI").value
         );
         let res = await confirmOtp(
-            window.sessionStorage.getItem('username'),
             window.sessionStorage.getItem('name'),
             window.sessionStorage.getItem('phoneNumber'),
             window.sessionStorage.getItem('oneTimePassword'),
