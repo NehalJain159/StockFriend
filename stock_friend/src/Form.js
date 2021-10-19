@@ -12,10 +12,10 @@ function Form() {
         window.sessionStorage.setItem('phoneNumber',document.getElementById('country-code').value+document.getElementById('phone').value);
         window.sessionStorage.setItem('sharePurchasedAtPrice',document.querySelector('.stkprice').value);
         storeDesiredStockPrice()
-        // let res = await createOtp(
-        //     window.sessionStorage.getItem('phoneNumber')
-        // );
-        // console.log(res);
+        let res = await createOtp(
+            window.sessionStorage.getItem('phoneNumber')
+        );
+        console.log(res);
     }
 
     let clearData = (e) => {
