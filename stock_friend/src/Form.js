@@ -11,11 +11,11 @@ function Form() {
         window.sessionStorage.setItem('name',document.querySelector('.name').value);
         window.sessionStorage.setItem('phoneNumber',document.getElementById('country-code').value+document.getElementById('phone').value);
         window.sessionStorage.setItem('sharePurchasedAtPrice',document.querySelector('.stkprice').value);
-        window.sessionStorage.setItem('desiredSharePrice',document.querySelector('.diff').value);
-        let res = await createOtp(
-            window.sessionStorage.getItem('phoneNumber')
-        );
-        console.log(res);
+        storeDesiredStockPrice()
+        // let res = await createOtp(
+        //     window.sessionStorage.getItem('phoneNumber')
+        // );
+        // console.log(res);
     }
 
     let clearData = (e) => {
@@ -26,8 +26,23 @@ function Form() {
         window.sessionStorage.removeItem('desiredSharePrice');
     }
 
-    let storeCompany = (e) => {
-        window.sessionStorage.setItem('company',e.target.value);
+    let storeChange = (e) => {
+        window.sessionStorage.setItem(e.target.name,e.target.value);
+    }
+
+    let storeDesiredStockPrice = () => {
+        const stockPrice = window.sessionStorage.getItem('sharePurchasedAtPrice');
+        let desiredPriceOrPercentage = window.sessionStorage.getItem('desiredSharePrice');
+        let desiredPrice
+        if(desiredPriceOrPercentage[desiredPriceOrPercentage.length - 1] == '%')
+        {
+            let percentage = parseInt(desiredPriceOrPercentage.substring(1,desiredPriceOrPercentage.length));
+            if(desiredPriceOrPercentage[0]==='-')
+            desiredPrice = stockPrice * (1 - percentage/100)
+            else
+            desiredPrice = stockPrice * (1 + percentage/100)
+            window.sessionStorage.setItem('desiredSharePrice', desiredPrice);
+        }
     }
 
     return (
@@ -35,7 +50,7 @@ function Form() {
             <div className="wrapper">
                 <form action="#" id="user-info" onSubmit={submitDetails}>
                     <div className="pair">
-                        <label for='name '>Name </label><br/>
+                        <label for='name'>Name </label><br/>
                         <input type='text' name='name' className='name' required /><br/>
                     </div>
                     <div className="pair">
@@ -44,7 +59,7 @@ function Form() {
                         <input type='text' name='phone' className='phone' id='phone' required></input><br/>
                     </div>
                     <div className="pair">
-                        <div onChange={storeCompany}>Company<br/>
+                        <div onChange={storeChange}>Company<br/>
                             <input type='radio' name='company' className='company'value='Apple'></input>
                             <label className='company'>Apple</label><br/>
                             <input type='radio' name='company' className='company'value='Amazon'></input>
@@ -56,13 +71,13 @@ function Form() {
                         </div>    
                     </div>
                     <div className="pair">
-                        <label for='stkprice '>Share purchased at price</label><br/>
-                        <input type='text' name='stkprice' className='stkprice' required ></input><br/>
+                        <label for='sharePurchasedAtPrice'>Share purchased at price</label><br/>
+                        <input type='text' name='sharePurchasedAtPrice' className='stkprice' required ></input><br/>
                     </div>
                     <div className="pair">
-                        <label for='diff '>Desired Stock price per share</label><br/>
-                        <div className="cont">Enter an absolute value</div><br/>
-                        <input type='text' name='diff' className='diff' required></input><br/>
+                        <label for='desiredSharePrice'>Desired Stock price per share</label><br/>
+                        <div className="cont">Enter an absolute value or relative percentage Ex. +10%, -10%</div><br/>
+                        <input type='text' name='desiredSharePrice' className='diff' required onChange={storeChange}></input><br/>
                     </div>
                     <div className="wrap-btn">
                         <div className="button">
